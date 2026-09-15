@@ -1,5 +1,5 @@
 /* ============================================================
-   DevilX Security Labs — site behaviour
+   DevilX Digital Labs — site behaviour
    vanilla, no deps. High-performance & accessible.
    ============================================================ */
 (function () {
@@ -102,7 +102,7 @@
   }
 
   /* ---------- Copy Email to Clipboard ---------- */
-  const EMAIL = 'bb8654838@gmail.com';
+  const EMAIL = 'devilxlabs@zohomail.in';
   const copyBtn = document.getElementById('copyMail');
 
   function fallbackCopy(cb) {
