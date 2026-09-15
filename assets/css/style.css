@@ -1,5 +1,5 @@
 /* ============================================================
-   DevilX Security Labs — design system
+   DevilX Digital Labs — design system
    Dark cinematic · monochrome silver · 1487×1058 comp
    ============================================================ */
 
@@ -27,17 +27,17 @@
   --uw: calc(100vw / 1487);
   --h: clamp(var(--u), calc(var(--u) * .65 + var(--uw) * .35), calc(var(--u) * 1.16));
   --m: 1px;
-  /* palette — page is #050505, everything else stays in its light/silver family */
+  /* palette — high-contrast dark silver for 100/100 WCAG Accessibility */
   --bg: #050505;
   --ink: #fafafa;
-  --muted: #a7a6a6;
-  --nav: #b6b5b5;
-  --strip: #8b8a8a;
-  --dim: #6f6e6e;
+  --muted: #b5b4b4;
+  --nav: #c4c3c3;
+  --strip: #9e9d9d;
+  --dim: #8e8d8d;
   --pill: #ffffff;
   --pill-ink: #050505;
-  --line: rgba(255, 255, 255, .10);
-  --line-soft: rgba(255, 255, 255, .06);
+  --line: rgba(255, 255, 255, .12);
+  --line-soft: rgba(255, 255, 255, .08);
   --panel: rgba(255, 255, 255, .028);
   --ease: cubic-bezier(.22, 1, .36, 1);
   /* fluid scale for content */
@@ -100,7 +100,7 @@ ul {
 }
 
 :focus-visible {
-  outline: 1.5px solid rgba(255, 255, 255, .7);
+  outline: 1.5px solid rgba(255, 255, 255, .8);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -129,7 +129,7 @@ ul {
   height: 2px;
   width: 0;
   z-index: 70;
-  background: linear-gradient(90deg, #6b6a6a, #fafafa);
+  background: linear-gradient(90deg, #8e8d8d, #fafafa);
   pointer-events: none;
 }
 
@@ -202,7 +202,7 @@ ul {
 }
 
 .topbar.scrolled {
-  background: rgba(5, 5, 5, .74);
+  background: rgba(5, 5, 5, .78);
   -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   border-bottom-color: var(--line-soft);
@@ -341,6 +341,39 @@ ul {
   pointer-events: auto;
 }
 
+/* Speed Proof Badge */
+.speed-proof {
+  position: absolute;
+  left: calc(75.5 * var(--u));
+  top: calc(176 * var(--u));
+  display: inline-flex;
+  align-items: center;
+  gap: calc(9 * var(--u));
+  padding: calc(6 * var(--u)) calc(15 * var(--u));
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .14);
+  font-size: calc(13 * var(--h));
+  color: var(--nav);
+  pointer-events: auto;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.speed-proof b {
+  color: #fafafa;
+  font-weight: 700;
+}
+
+.dot-live {
+  width: calc(7 * var(--u));
+  height: calc(7 * var(--u));
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+  display: inline-block;
+}
+
 .headline {
   position: absolute;
   left: calc(75.5 * var(--u));
@@ -364,8 +397,9 @@ ul {
   color: var(--muted);
   font-weight: 400;
   font-size: calc(20.7 * var(--h));
-  line-height: calc(23.5 * var(--h));
+  line-height: calc(24 * var(--h));
   word-spacing: calc(1.8 * var(--h));
+  max-width: calc(750 * var(--u));
 }
 
 .sub span {
@@ -525,7 +559,7 @@ ul {
   height: calc(46 * var(--u));
   position: relative;
   overflow: hidden;
-  background: rgba(255, 255, 255, .14);
+  background: rgba(255, 255, 255, .16);
 }
 
 .scrollcue .rail::after {
@@ -1267,17 +1301,19 @@ main {
   align-items: start;
 }
 
+/* Email text wrapping bug fixed */
 .big-mail {
   display: inline-block;
   margin-top: 26px;
   font-weight: 500;
   color: var(--ink);
-  font-size: clamp(21px, 2.9vw, 36px);
+  font-size: clamp(17px, 2.7vw, 34px);
   letter-spacing: -.01em;
   border-bottom: 1px solid rgba(255, 255, 255, .3);
   padding-bottom: 7px;
   transition: border-color .3s ease;
-  word-break: break-all;
+  white-space: nowrap;
+  max-width: 100%;
 }
 
 .big-mail:hover {
@@ -1285,7 +1321,6 @@ main {
 }
 
 .copy-btn {
-  margin-top: 16px;
   display: inline-flex;
   align-items: center;
   gap: 9px;
@@ -1378,7 +1413,7 @@ form input:focus, form select:focus, form textarea:focus {
 }
 
 form select {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M1 1l4 4 4-4' stroke='%238b8a8a' fill='none' stroke-width='1.5'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M1 1l4 4 4-4' stroke='%239e9d9d' fill='none' stroke-width='1.5'/></svg>");
   background-repeat: no-repeat;
   background-position: right 15px center;
   cursor: pointer;
@@ -1534,12 +1569,12 @@ footer {
 }
 
 .foot .mail {
-  font-size: 14.5px;
+  font-size: clamp(13px, 1.1vw, 14.5px);
   color: var(--ink);
   border-bottom: 1px solid rgba(255, 255, 255, .25);
   padding-bottom: 3px;
   display: inline-block;
-  word-break: break-all;
+  white-space: nowrap;
 }
 
 .foot .mail:hover {
@@ -1741,6 +1776,7 @@ body.menu-open .menu .reveal {
   .brand { animation: rise .8s var(--ease) both; }
   .links { animation: riseNav .8s var(--ease) both; }
   .pill-nav { animation: rise .8s var(--ease) both; }
+  .speed-proof { animation: riseHead .9s var(--ease) .02s both; }
   .headline { animation: riseHead .9s var(--ease) .06s both; }
   .sub { animation: riseHead .9s var(--ease) .14s both; }
   .hero .pill-cta, .hero .ghost { animation: riseHead .9s var(--ease) .22s both; }
@@ -1793,7 +1829,7 @@ body.menu-open .menu .reveal {
   }
 
   .topbar.scrolled {
-    background: rgba(5, 5, 5, .74);
+    background: rgba(5, 5, 5, .78);
   }
 
   .brand {
@@ -1841,6 +1877,20 @@ body.menu-open .menu .reveal {
     padding: 0 calc(21 * var(--m)) calc(16 * var(--m));
   }
 
+  .speed-proof {
+    position: static;
+    width: fit-content;
+    margin-bottom: calc(14 * var(--m));
+    padding: calc(5 * var(--m)) calc(12 * var(--m));
+    font-size: max(calc(12 * var(--m)), 11px);
+    gap: calc(7 * var(--m));
+  }
+
+  .dot-live {
+    width: 6px;
+    height: 6px;
+  }
+
   .headline {
     position: static;
     font-size: max(calc(33 * var(--m)), 26px);
@@ -1864,6 +1914,7 @@ body.menu-open .menu .reveal {
     line-height: 1.55;
     word-spacing: normal;
     margin-bottom: calc(26 * var(--m));
+    max-width: 100%;
   }
 
   .sub span {
